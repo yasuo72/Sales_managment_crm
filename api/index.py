@@ -1,28 +1,33 @@
 """
-api/index.py — Vercel Serverless Function Entrypoint
+api/index.py — Vercel Serverless Function & Full-Stack Web Handler
 Zudio Store Operations Intelligence Engine
 
-Exposes serverless endpoints for Vercel deployment:
-  - GET  /api/metrics -> Computed Pandas analytical dimensions (JSON)
-  - POST /api/chat    -> AI Copilot (Gemini / OpenAI / Deterministic Safe Mode)
-  - OPTIONS           -> CORS Pre-flight handling
+Unified Serverless Handler for Vercel:
+  - GET  /             -> Serves web/index.html (Executive Dashboard)
+  - GET  /web/*        -> Serves static assets (style.css, app.js)
+  - GET  /api/metrics  -> Pre-computed Pandas analytics JSON
+  - POST /api/chat     -> AI Copilot (Gemini / OpenAI / Safe Mode)
+  - GET  /output/*     -> Matplotlib visual charts
+  - GET  /assets/*     -> Project screenshots & assets
+  - OPTIONS            -> CORS Pre-flight handling
 """
 
 import json
 import logging
+import mimetypes
 import os
 import sys
 import urllib.parse
 from http.server import BaseHTTPRequestHandler
 
-# Ensure project root is in sys.path so modules like insight_engine, copilot, config are accessible
+# Ensure project root is in sys.path so insight_engine, copilot, config can be loaded
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if ROOT_DIR not in sys.path:
     sys.path.insert(0, ROOT_DIR)
 
 import pandas as pd
 
-# Set matplotlib to non-interactive Agg backend to avoid headless server issues
+# Set matplotlib to non-interactive Agg backend to avoid headless display errors
 try:
     import matplotlib
     matplotlib.use("Agg")
@@ -42,7 +47,7 @@ _system_instruction = None
 def get_metrics_and_context():
     """
     Computes or retrieves cached ground-truth metrics from sales_data.csv.
-    Caches results in memory across warm serverless invocations for sub-10ms response times.
+    Caches in memory across warm serverless invocations for sub-10ms response times.
     """
     global _metrics_cache, _system_instruction
     if _metrics_cache is not None:
@@ -66,12 +71,38 @@ def get_metrics_and_context():
 # ---------------------------------------------------------------------------
 
 class handler(BaseHTTPRequestHandler):
-    """Vercel Python runtime handler."""
+    """Full-stack Vercel serverless request handler."""
 
     def _set_cors_headers(self):
         self.send_header("Access-Control-Allow-Origin", "*")
         self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
         self.send_header("Access-Control-Allow-Headers", "Content-Type, Authorization")
+
+    def _serve_file(self, file_path: str, default_content_type: str = "text/plain"):
+        if not os.path.exists(file_path) or not os.path.isfile(file_path):
+            self.send_response(404)
+            self._set_cors_headers()
+            self.send_header("Content-Type", "application/json")
+            self.end_headers()
+            self.wfile.write(json.dumps({"error": f"File not found: {os.path.basename(file_path)}"}).encode("utf-8"))
+            return
+
+        mime, _ = mimetypes.guess_type(file_path)
+        content_type = mime or default_content_type
+        if "text/" in content_type or "javascript" in content_type:
+            content_type += "; charset=utf-8"
+
+        with open(file_path, "rb") as f:
+            content = f.read()
+
+        self.send_response(200)
+        self.send_header("Content-Type", content_type)
+        self._set_cors_headers()
+        self.send_header("Content-Length", str(len(content)))
+        if any(file_path.endswith(ext) for ext in (".css", ".js", ".png", ".jpg", ".svg", ".ico")):
+            self.send_header("Cache-Control", "public, max-age=86400")
+        self.end_headers()
+        self.wfile.write(content)
 
     def do_OPTIONS(self):
         self.send_response(200)
@@ -80,10 +111,18 @@ class handler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         parsed = urllib.parse.urlparse(self.path)
-        path = parsed.path.lower()
+        path = parsed.path.rstrip("/")
+        if not path:
+            path = "/"
 
-        # Handle /api/metrics (or any path routing containing "metrics")
-        if "metrics" in path or path in ("/api", "/api/"):
+        # 1. Root / UI Dashboard → web/index.html
+        if path in ("/", "/index.html", "/web", "/web/index.html"):
+            index_file = os.path.join(ROOT_DIR, "web", "index.html")
+            self._serve_file(index_file, "text/html; charset=utf-8")
+            return
+
+        # 2. Metrics API → pre-computed analytics JSON
+        if path.endswith("/api/metrics") or path == "/api/metrics" or "metrics" in path:
             try:
                 metrics, _ = get_metrics_and_context()
                 body = json.dumps(metrics, default=str).encode("utf-8")
@@ -103,12 +142,39 @@ class handler(BaseHTTPRequestHandler):
                 self.wfile.write(err_body)
             return
 
+        # 3. Static assets from web/ (e.g. /web/style.css, /web/app.js)
+        if path.startswith("/web/"):
+            rel_path = path[5:]
+            file_path = os.path.join(ROOT_DIR, "web", rel_path)
+            self._serve_file(file_path)
+            return
+
+        # Direct asset fallback (e.g. /style.css or /app.js)
+        if path in ("/style.css", "/app.js"):
+            file_path = os.path.join(ROOT_DIR, "web", path.lstrip("/"))
+            self._serve_file(file_path)
+            return
+
+        # 4. Output chart images (/output/top_products.png)
+        if path.startswith("/output/"):
+            rel_path = path[8:]
+            file_path = os.path.join(ROOT_DIR, "output", rel_path)
+            self._serve_file(file_path, "image/png")
+            return
+
+        # 5. Assets (/assets/*)
+        if path.startswith("/assets/"):
+            rel_path = urllib.parse.unquote(path[8:])
+            file_path = os.path.join(ROOT_DIR, "assets", rel_path)
+            self._serve_file(file_path, "image/png")
+            return
+
         # 404 for unknown GET
         self.send_response(404)
         self.send_header("Content-Type", "application/json")
         self._set_cors_headers()
         self.end_headers()
-        self.wfile.write(json.dumps({"error": "Endpoint not found"}).encode("utf-8"))
+        self.wfile.write(json.dumps({"error": f"Endpoint '{path}' not found"}).encode("utf-8"))
 
     def do_POST(self):
         parsed = urllib.parse.urlparse(self.path)
@@ -149,12 +215,11 @@ class handler(BaseHTTPRequestHandler):
         self.send_header("Content-Type", "application/json")
         self._set_cors_headers()
         self.end_headers()
-        self.wfile.write(json.dumps({"error": "Endpoint not found"}).encode("utf-8"))
+        self.wfile.write(json.dumps({"error": f"Endpoint '{path}' not found"}).encode("utf-8"))
 
 
-# Local testing convenience
 if __name__ == "__main__":
     from http.server import HTTPServer
     server = HTTPServer(("127.0.0.1", 8080), handler)
-    print("Test server running at http://127.0.0.1:8080")
+    print("Vercel dev test server running at http://127.0.0.1:8080")
     server.serve_forever()
