@@ -20,14 +20,14 @@ import sys
 import urllib.parse
 from http.server import BaseHTTPRequestHandler
 
-# Ensure project root is in sys.path so insight_engine, copilot, config can be loaded
+# Ensure project root is in sys.path
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if ROOT_DIR not in sys.path:
     sys.path.insert(0, ROOT_DIR)
 
 import pandas as pd
 
-# Set matplotlib to non-interactive Agg backend to avoid headless display errors
+# Headless matplotlib safety
 try:
     import matplotlib
     matplotlib.use("Agg")
@@ -78,6 +78,27 @@ class handler(BaseHTTPRequestHandler):
         self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
         self.send_header("Access-Control-Allow-Headers", "Content-Type, Authorization")
 
+    def _resolve_path(self) -> str:
+        """Resolves the real requested URL from Vercel rewrite headers or query parameters."""
+        parsed = urllib.parse.urlparse(self.path)
+        qs = urllib.parse.parse_qs(parsed.query)
+
+        # 1. Injected by vercel.json rewrite: ?route_path=...
+        if "route_path" in qs and qs["route_path"][0]:
+            return "/" + qs["route_path"][0].lstrip("/")
+
+        # 2. Vercel edge rewrite headers
+        for h in ("x-matched-path", "x-invoke-path", "x-forwarded-uri"):
+            val = self.headers.get(h)
+            if val and val != "/api/index.py":
+                return val
+
+        # 3. Direct path fallback
+        p = parsed.path.rstrip("/")
+        if not p or p == "/api/index.py":
+            return "/"
+        return p
+
     def _serve_file(self, file_path: str, default_content_type: str = "text/plain"):
         if not os.path.exists(file_path) or not os.path.isfile(file_path):
             self.send_response(404)
@@ -110,13 +131,10 @@ class handler(BaseHTTPRequestHandler):
         self.end_headers()
 
     def do_GET(self):
-        parsed = urllib.parse.urlparse(self.path)
-        path = parsed.path.rstrip("/")
-        if not path:
-            path = "/"
+        path = self._resolve_path()
 
         # 1. Root / UI Dashboard → web/index.html
-        if path in ("/", "/index.html", "/web", "/web/index.html"):
+        if path in ("/", "/index.html", "/web", "/web/index.html", "/api/index.py"):
             index_file = os.path.join(ROOT_DIR, "web", "index.html")
             self._serve_file(index_file, "text/html; charset=utf-8")
             return
@@ -169,7 +187,13 @@ class handler(BaseHTTPRequestHandler):
             self._serve_file(file_path, "image/png")
             return
 
-        # 404 for unknown GET
+        # 6. Any other GET that is not an API -> fallback to index.html (SPA routing safety)
+        if not path.startswith("/api/"):
+            index_file = os.path.join(ROOT_DIR, "web", "index.html")
+            self._serve_file(index_file, "text/html; charset=utf-8")
+            return
+
+        # 404 for unknown API GET
         self.send_response(404)
         self.send_header("Content-Type", "application/json")
         self._set_cors_headers()
@@ -177,11 +201,10 @@ class handler(BaseHTTPRequestHandler):
         self.wfile.write(json.dumps({"error": f"Endpoint '{path}' not found"}).encode("utf-8"))
 
     def do_POST(self):
-        parsed = urllib.parse.urlparse(self.path)
-        path = parsed.path.lower()
+        path = self._resolve_path().lower()
 
-        # Handle /api/chat
-        if "chat" in path or path in ("/api", "/api/"):
+        # All POST traffic to chat API
+        if "chat" in path or path in ("/api", "/api/", "/", "/api/index.py"):
             try:
                 metrics, sys_prompt = get_metrics_and_context()
                 content_len = int(self.headers.get("Content-Length", 0))
