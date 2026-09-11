@@ -311,6 +311,21 @@ python test_engine.py
    `> ⚙️ Offline Safe Mode: Generated via Deterministic Retail Intelligence Engine (Verified CSV Ground Truth)`
 4. Paste your API key back into `.env`: the next request hot-reloads and activates Gemini reasoning automatically.
 
+### Flow 8: Cloud Deployment to Vercel (Production Serverless)
+The project includes production-ready Vercel serverless configuration (`vercel.json` and `api/index.py`).
+
+```bash
+# Option A: Deploy via Vercel CLI
+npx vercel
+
+# Option B: Deploy via GitHub (Recommended)
+# Push to your GitHub repo, then import into Vercel Dashboard:
+# 1. Go to https://vercel.com/new
+# 2. Select repository 'yasuo72/Sales_managment_crm'
+# 3. Add Environment Variable: GEMINI_API_KEY (optional)
+# 4. Click 'Deploy' -> Instant live production URL!
+```
+
 ---
 
 ## 📦 Deliverables & File Mapping Matrix
@@ -327,8 +342,9 @@ python test_engine.py
 | **Bonus 4 (Hindi)** | Inside `store_report.md` | ✅ Complete | Bilingual supervisor briefing |
 | **Web Dashboard** | [`app.py`](file:///c:/Users/Rohit/Sales-Managment_CRM/app.py) + [`web/`](file:///c:/Users/Rohit/Sales-Managment_CRM/web/) | ✅ Complete | `python app.py` (`http://127.0.0.1:8000`) |
 | **CLI Assistant** | [`chat.py`](file:///c:/Users/Rohit/Sales-Managment_CRM/chat.py) | ✅ Complete | `python chat.py` |
-| **Q&A Master Doc** | [`STORE_MANAGER_COPILOT_QNA.md`](file:///c:/Users/Rohit/Sales-Managment_CRM/STORE_MANAGER_COPILOT_QNA.md) | ✅ Complete | All 11 questions, exact wording |
+| **Q&A Master Doc** | [`STORE_MANAGER_COPILOT_REPORT.pdf`](file:///c:/Users/Rohit/Sales-Managment_CRM/STORE_MANAGER_COPILOT_REPORT.pdf) | ✅ Complete | All 11 questions, exact wording |
 | **UI Screenshots** | [`assets/`](file:///c:/Users/Rohit/Sales-Managment_CRM/assets/) | ✅ Complete | 4 high-res operational UI previews |
+| **Vercel Cloud Ready**| [`vercel.json`](file:///c:/Users/Rohit/Sales-Managment_CRM/vercel.json) + [`api/index.py`](file:///c:/Users/Rohit/Sales-Managment_CRM/api/index.py) | ✅ Complete | Serverless Python backend + Edge CDN rewrites |
 | **Test Suite** | [`test_engine.py`](file:///c:/Users/Rohit/Sales-Managment_CRM/test_engine.py) | ✅ Complete | `python test_engine.py` |
 
 ---
