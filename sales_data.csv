@@ -1,0 +1,194 @@
+bill_id,sale_id,date,day_of_week,product_name,category,size,color,quantity_sold,price (Rs.),discount (%),total_amount (Rs.),payment_method,customer_gender,age_group,store_section
+B001,S001,2025-09-01,Monday,Oversized Cotton T-Shirt,Tops,S,Black,1,499,0,499.0,UPI,Male,Young Adult (20-30),Men
+B002,S002,2025-09-01,Monday,High-Rise Trousers,Bottoms,L,Olive,1,999,0,999.0,UPI,Female,Young Adult (20-30),Women
+B003,S003,2025-09-01,Monday,Slim Fit Jeans,Bottoms,M,Black,1,999,0,999.0,Card,Female,Adult (31-45),Men
+B003,S004,2025-09-01,Monday,Classic Polo T-Shirt,Tops,S,Navy Blue,1,599,0,599.0,Card,Female,Adult (31-45),Men
+B004,S005,2025-09-01,Monday,Cotton Chinos,Bottoms,XL,Navy Blue,1,899,0,899.0,Cash,Female,Young Adult (20-30),Men
+B004,S006,2025-09-01,Monday,Classic Polo T-Shirt,Tops,XL,Navy Blue,2,599,0,1198.0,Cash,Female,Young Adult (20-30),Men
+B005,S007,2025-09-01,Monday,High-Rise Trousers,Bottoms,L,Charcoal,1,999,0,999.0,UPI,Male,Young Adult (20-30),Women
+B006,S008,2025-09-01,Monday,Printed Silk Scarf,Accessories,S,Emerald,2,249,40,298.8,UPI,Male,Young Adult (20-30),Accessories
+B007,S009,2025-09-02,Tuesday,Ethnic Kolhapuri Chappals,Footwear,L,Black,1,699,0,699.0,Card,Male,Young Adult (20-30),Women
+B008,S010,2025-09-02,Tuesday,Linen Casual Shirt,Tops,L,Sky Blue,1,799,0,799.0,UPI,Male,Young Adult (20-30),Men
+B009,S011,2025-09-02,Tuesday,Slim Fit Jeans,Bottoms,M,Navy Blue,1,999,0,999.0,UPI,Female,Senior (46+),Men
+B010,S012,2025-09-02,Tuesday,Slim Fit Jeans,Bottoms,M,Charcoal,2,999,0,1998.0,Card,Male,Young Adult (20-30),Men
+B011,S013,2025-09-03,Wednesday,Slim Fit Jeans,Bottoms,M,Navy Blue,1,999,10,899.1,UPI,Male,Adult (31-45),Men
+B011,S014,2025-09-03,Wednesday,Classic Leather Belt,Accessories,XL,Black,1,349,50,174.5,UPI,Male,Adult (31-45),Accessories
+B012,S015,2025-09-03,Wednesday,Classic Polo T-Shirt,Tops,XL,Black,2,599,0,1198.0,Cash,Female,Young Adult (20-30),Men
+B013,S016,2025-09-03,Wednesday,Anarkali Kurta Set,Ethnic Wear,M,Red,2,1299,10,2338.2,UPI,Female,Young Adult (20-30),Women
+B013,S017,2025-09-03,Wednesday,Floral Kurti,Ethnic Wear,S,Red,3,699,0,2097.0,UPI,Female,Young Adult (20-30),Women
+B013,S018,2025-09-03,Wednesday,Printed Silk Scarf,Accessories,M,Emerald,1,249,50,124.5,UPI,Female,Young Adult (20-30),Accessories
+B014,S019,2025-09-03,Wednesday,High-Rise Trousers,Bottoms,L,Charcoal,1,999,0,999.0,Cash,Male,Adult (31-45),Women
+B014,S020,2025-09-03,Wednesday,Oversized Cotton T-Shirt,Tops,M,Black,1,499,0,499.0,Cash,Male,Adult (31-45),Men
+B015,S021,2025-09-03,Wednesday,Linen Casual Shirt,Tops,XL,Sky Blue,1,799,0,799.0,UPI,Female,Teen (13-19),Kids
+B015,S022,2025-09-03,Wednesday,Wide Leg Denim,Bottoms,S,Black,2,1199,0,2398.0,UPI,Female,Teen (13-19),Kids
+B016,S023,2025-09-03,Wednesday,Oversized Cotton T-Shirt,Tops,L,Charcoal,1,499,10,449.1,UPI,Male,Adult (31-45),Men
+B017,S024,2025-09-03,Wednesday,Slip-On Loafers,Footwear,M,Navy Blue,1,1199,0,1199.0,Card,Male,Young Adult (20-30),Men
+B018,S025,2025-09-04,Thursday,Slim Fit Jeans,Bottoms,L,Navy Blue,1,999,0,999.0,Card,Other,Teen (13-19),Kids
+B019,S026,2025-09-04,Thursday,Oversized Cotton T-Shirt,Tops,S,Black,1,499,10,449.1,UPI,Female,Young Adult (20-30),Men
+B019,S027,2025-09-04,Thursday,Slim Fit Jeans,Bottoms,S,Navy Blue,1,999,0,999.0,UPI,Female,Young Adult (20-30),Men
+B020,S028,2025-09-04,Thursday,Printed Silk Scarf,Accessories,M,Mustard,1,249,50,124.5,UPI,Female,Teen (13-19),Accessories
+B021,S029,2025-09-04,Thursday,Wide Leg Denim,Bottoms,M,Sky Blue,1,1199,0,1199.0,UPI,Female,Senior (46+),Women
+B022,S030,2025-09-05,Friday,Anarkali Kurta Set,Ethnic Wear,S,Red,1,1299,10,1169.1,UPI,Male,Teen (13-19),Women
+B023,S031,2025-09-05,Friday,Anarkali Kurta Set,Ethnic Wear,L,Mustard,2,1299,0,2598.0,UPI,Male,Teen (13-19),Women
+B024,S032,2025-09-05,Friday,Cotton Chinos,Bottoms,L,Olive,1,899,0,899.0,Card,Female,Young Adult (20-30),Men
+B024,S033,2025-09-05,Friday,Oversized Cotton T-Shirt,Tops,M,White,1,499,0,499.0,Card,Female,Young Adult (20-30),Men
+B025,S034,2025-09-05,Friday,Floral Kurti,Ethnic Wear,S,Pink,1,699,10,629.1,UPI,Female,Young Adult (20-30),Women
+B026,S035,2025-09-05,Friday,Anarkali Kurta Set,Ethnic Wear,XL,Red,1,1299,10,1169.1,Card,Female,Adult (31-45),Women
+B027,S036,2025-09-05,Friday,Floral Kurti,Ethnic Wear,S,Pink,1,699,0,699.0,Card,Female,Young Adult (20-30),Women
+B028,S037,2025-09-05,Friday,Embroidered Sherwani,Ethnic Wear,L,Mustard,1,1799,10,1619.1,Card,Male,Adult (31-45),Men
+B029,S038,2025-09-06,Saturday,Cotton Kurta Pajama,Ethnic Wear,L,Mustard,1,999,0,999.0,UPI,Female,Young Adult (20-30),Men
+B030,S039,2025-09-06,Saturday,Anarkali Kurta Set,Ethnic Wear,M,Red,2,1299,0,2598.0,Card,Male,Teen (13-19),Women
+B030,S040,2025-09-06,Saturday,Anarkali Kurta Set,Ethnic Wear,L,Red,1,1299,10,1169.1,Card,Male,Teen (13-19),Women
+B030,S041,2025-09-06,Saturday,Oversized Cotton T-Shirt,Tops,XL,White,1,499,0,499.0,Card,Male,Teen (13-19),Kids
+B031,S042,2025-09-06,Saturday,Cotton Kurta Pajama,Ethnic Wear,XL,White,2,999,10,1798.2,UPI,Male,Adult (31-45),Men
+B031,S043,2025-09-06,Saturday,Printed Silk Scarf,Accessories,S,Mustard,2,249,50,249.0,UPI,Male,Adult (31-45),Accessories
+B031,S044,2025-09-06,Saturday,Casual White Sneakers,Footwear,S,White,1,899,10,809.1,UPI,Male,Adult (31-45),Men
+B032,S045,2025-09-06,Saturday,Casual White Sneakers,Footwear,L,White,2,899,10,1618.2,UPI,Male,Adult (31-45),Men
+B033,S046,2025-09-06,Saturday,Classic Polo T-Shirt,Tops,S,White,1,599,0,599.0,UPI,Male,Young Adult (20-30),Men
+B034,S047,2025-09-07,Sunday,Floral Kurti,Ethnic Wear,XS,Red,1,699,0,699.0,UPI,Female,Adult (31-45),Women
+B035,S048,2025-09-07,Sunday,Floral Kurti,Ethnic Wear,S,Pink,1,699,0,699.0,Card,Female,Young Adult (20-30),Women
+B036,S049,2025-09-07,Sunday,Cotton Kurta Pajama,Ethnic Wear,M,Mustard,1,999,0,999.0,UPI,Male,Adult (31-45),Men
+B036,S050,2025-09-07,Sunday,Cotton Kurta Pajama,Ethnic Wear,L,Sky Blue,2,999,0,1998.0,UPI,Male,Adult (31-45),Men
+B036,S051,2025-09-07,Sunday,Classic Leather Belt,Accessories,L,Charcoal,1,349,40,209.4,UPI,Male,Adult (31-45),Accessories
+B037,S052,2025-09-07,Sunday,Slim Fit Jeans,Bottoms,M,Black,1,999,0,999.0,UPI,Male,Young Adult (20-30),Men
+B037,S053,2025-09-07,Sunday,Classic Polo T-Shirt,Tops,S,Black,1,599,0,599.0,UPI,Male,Young Adult (20-30),Men
+B038,S054,2025-09-07,Sunday,Cotton Kurta Pajama,Ethnic Wear,M,White,1,999,0,999.0,UPI,Female,Young Adult (20-30),Men
+B038,S055,2025-09-07,Sunday,Beaded Boho Earrings,Accessories,XS,Red,2,199,50,199.0,UPI,Female,Young Adult (20-30),Accessories
+B038,S056,2025-09-07,Sunday,Beaded Boho Earrings,Accessories,XS,Red,3,199,40,358.2,UPI,Female,Young Adult (20-30),Accessories
+B039,S057,2025-09-07,Sunday,Floral Kurti,Ethnic Wear,L,Mustard,1,699,0,699.0,UPI,Male,Young Adult (20-30),Women
+B039,S058,2025-09-07,Sunday,Printed Silk Scarf,Accessories,S,Mustard,2,249,50,249.0,UPI,Male,Young Adult (20-30),Accessories
+B040,S059,2025-09-07,Sunday,Cotton Kurta Pajama,Ethnic Wear,L,Sky Blue,1,999,10,899.1,UPI,Female,Adult (31-45),Men
+B041,S060,2025-09-07,Sunday,Printed Crop Top,Tops,XL,Sky Blue,1,399,0,399.0,UPI,Female,Teen (13-19),Women
+B042,S061,2025-09-08,Monday,Anarkali Kurta Set,Ethnic Wear,XL,Emerald,2,1299,10,2338.2,UPI,Male,Young Adult (20-30),Women
+B042,S062,2025-09-08,Monday,Printed Silk Scarf,Accessories,S,Emerald,2,249,50,249.0,UPI,Male,Young Adult (20-30),Accessories
+B043,S063,2025-09-08,Monday,Floral Kurti,Ethnic Wear,L,Red,1,699,0,699.0,UPI,Female,Teen (13-19),Women
+B044,S064,2025-09-08,Monday,Anarkali Kurta Set,Ethnic Wear,L,Red,2,1299,0,2598.0,Card,Male,Teen (13-19),Women
+B045,S065,2025-09-08,Monday,Anarkali Kurta Set,Ethnic Wear,L,Mustard,1,1299,0,1299.0,Card,Male,Teen (13-19),Women
+B045,S066,2025-09-08,Monday,Printed Silk Scarf,Accessories,M,Emerald,1,249,40,149.4,Card,Male,Teen (13-19),Accessories
+B046,S067,2025-09-08,Monday,Anarkali Kurta Set,Ethnic Wear,S,Emerald,1,1299,10,1169.1,UPI,Female,Young Adult (20-30),Women
+B047,S068,2025-09-09,Tuesday,Floral Kurti,Ethnic Wear,M,White,1,699,0,699.0,Cash,Female,Senior (46+),Women
+B048,S069,2025-09-09,Tuesday,Anarkali Kurta Set,Ethnic Wear,L,Mustard,1,1299,0,1299.0,UPI,Female,Young Adult (20-30),Women
+B049,S070,2025-09-09,Tuesday,Floral Kurti,Ethnic Wear,XL,Red,1,699,20,559.2,UPI,Female,Senior (46+),Women
+B050,S071,2025-09-10,Wednesday,Oversized Cotton T-Shirt,Tops,XL,Charcoal,1,499,10,449.1,Card,Male,Young Adult (20-30),Men
+B051,S072,2025-09-10,Wednesday,Cotton Kurta Pajama,Ethnic Wear,XL,White,1,999,20,799.2,UPI,Male,Adult (31-45),Men
+B052,S073,2025-09-10,Wednesday,Linen Casual Shirt,Tops,L,Olive,1,799,10,719.1,UPI,Male,Young Adult (20-30),Men
+B052,S074,2025-09-10,Wednesday,Slim Fit Jeans,Bottoms,M,Charcoal,1,999,0,999.0,UPI,Male,Young Adult (20-30),Men
+B052,S075,2025-09-10,Wednesday,Classic Leather Belt,Accessories,M,Charcoal,1,349,50,174.5,UPI,Male,Young Adult (20-30),Accessories
+B053,S076,2025-09-10,Wednesday,Slip-On Loafers,Footwear,L,Navy Blue,1,1199,0,1199.0,Card,Male,Young Adult (20-30),Men
+B054,S077,2025-09-11,Thursday,Classic Polo T-Shirt,Tops,M,Black,2,599,0,1198.0,UPI,Female,Senior (46+),Men
+B055,S078,2025-09-11,Thursday,Anarkali Kurta Set,Ethnic Wear,M,Red,2,1299,0,2598.0,Card,Female,Young Adult (20-30),Women
+B056,S079,2025-09-11,Thursday,Slim Fit Jeans,Bottoms,M,Black,1,999,0,999.0,Cash,Female,Young Adult (20-30),Men
+B056,S080,2025-09-11,Thursday,Classic Polo T-Shirt,Tops,M,Black,1,599,0,599.0,Cash,Female,Young Adult (20-30),Men
+B057,S081,2025-09-12,Friday,Cotton Chinos,Bottoms,M,Charcoal,1,899,0,899.0,UPI,Female,Young Adult (20-30),Men
+B058,S082,2025-09-12,Friday,Slim Fit Jeans,Bottoms,M,Black,1,999,0,999.0,Card,Female,Young Adult (20-30),Men
+B058,S083,2025-09-12,Friday,Classic Leather Belt,Accessories,M,Charcoal,1,349,40,209.4,Card,Female,Young Adult (20-30),Accessories
+B059,S084,2025-09-12,Friday,Floral Kurti,Ethnic Wear,M,White,1,699,10,629.1,Card,Female,Adult (31-45),Women
+B059,S085,2025-09-12,Friday,Printed Silk Scarf,Accessories,M,Pink,1,249,50,124.5,Card,Female,Adult (31-45),Accessories
+B059,S086,2025-09-12,Friday,Beaded Boho Earrings,Accessories,XS,Mustard,1,199,50,99.5,Card,Female,Adult (31-45),Accessories
+B060,S087,2025-09-13,Saturday,Oversized Cotton T-Shirt,Tops,M,Charcoal,1,499,0,499.0,Cash,Male,Adult (31-45),Men
+B061,S088,2025-09-13,Saturday,Wide Leg Denim,Bottoms,XS,Black,1,1199,0,1199.0,UPI,Male,Young Adult (20-30),Women
+B061,S089,2025-09-13,Saturday,Linen Casual Shirt,Tops,XL,White,3,799,0,2397.0,UPI,Male,Young Adult (20-30),Men
+B062,S090,2025-09-13,Saturday,Cotton Chinos,Bottoms,L,Charcoal,1,899,10,809.1,Card,Male,Adult (31-45),Men
+B063,S091,2025-09-13,Saturday,Oversized Cotton T-Shirt,Tops,S,White,1,499,0,499.0,UPI,Male,Teen (13-19),Kids
+B063,S092,2025-09-13,Saturday,Slim Fit Jeans,Bottoms,L,Black,1,999,10,899.1,UPI,Male,Teen (13-19),Men
+B063,S093,2025-09-13,Saturday,Beaded Boho Earrings,Accessories,XS,Sky Blue,2,199,40,238.8,UPI,Male,Teen (13-19),Accessories
+B064,S094,2025-09-13,Saturday,Floral Kurti,Ethnic Wear,XL,White,1,699,0,699.0,Card,Male,Adult (31-45),Women
+B064,S095,2025-09-13,Saturday,Anarkali Kurta Set,Ethnic Wear,XL,Red,1,1299,0,1299.0,Card,Male,Adult (31-45),Women
+B065,S096,2025-09-13,Saturday,Oversized Cotton T-Shirt,Tops,S,Charcoal,2,499,0,998.0,UPI,Male,Young Adult (20-30),Men
+B066,S097,2025-09-13,Saturday,Slim Fit Jeans,Bottoms,L,Navy Blue,1,999,10,899.1,UPI,Female,Teen (13-19),Men
+B067,S098,2025-09-14,Sunday,Floral Kurti,Ethnic Wear,S,Mustard,1,699,10,629.1,UPI,Female,Adult (31-45),Women
+B067,S099,2025-09-14,Sunday,Cotton Kurta Pajama,Ethnic Wear,M,Sky Blue,1,999,10,899.1,UPI,Female,Adult (31-45),Men
+B068,S100,2025-09-14,Sunday,Oversized Cotton T-Shirt,Tops,M,Charcoal,1,499,0,499.0,Cash,Female,Young Adult (20-30),Men
+B069,S101,2025-09-14,Sunday,Slim Fit Jeans,Bottoms,L,Black,2,999,10,1798.2,Cash,Male,Young Adult (20-30),Men
+B070,S102,2025-09-14,Sunday,Cotton Chinos,Bottoms,S,Charcoal,1,899,10,809.1,UPI,Male,Young Adult (20-30),Men
+B071,S103,2025-09-14,Sunday,Floral Kurti,Ethnic Wear,M,Mustard,1,699,0,699.0,UPI,Female,Senior (46+),Women
+B072,S104,2025-09-14,Sunday,Oversized Cotton T-Shirt,Tops,XL,White,1,499,10,449.1,UPI,Female,Young Adult (20-30),Men
+B072,S105,2025-09-14,Sunday,Cotton Chinos,Bottoms,L,Charcoal,3,899,0,2697.0,UPI,Female,Young Adult (20-30),Men
+B073,S106,2025-09-14,Sunday,Ethnic Kolhapuri Chappals,Footwear,S,Red,1,699,20,559.2,UPI,Female,Senior (46+),Women
+B074,S107,2025-09-14,Sunday,Slip-On Loafers,Footwear,M,Navy Blue,1,1199,0,1199.0,Card,Male,Young Adult (20-30),Men
+B075,S108,2025-09-15,Monday,Slim Fit Jeans,Bottoms,S,Charcoal,1,999,0,999.0,Cash,Female,Adult (31-45),Men
+B076,S109,2025-09-15,Monday,Cotton Chinos,Bottoms,L,Olive,3,899,0,2697.0,UPI,Female,Young Adult (20-30),Men
+B077,S110,2025-09-15,Monday,Cotton Chinos,Bottoms,XL,Charcoal,1,899,10,809.1,UPI,Male,Young Adult (20-30),Men
+B078,S111,2025-09-15,Monday,Cotton Chinos,Bottoms,S,Olive,2,899,0,1798.0,Card,Other,Young Adult (20-30),Men
+B079,S112,2025-09-16,Tuesday,Printed Crop Top,Tops,XS,Pink,1,399,0,399.0,UPI,Female,Young Adult (20-30),Women
+B080,S113,2025-09-17,Wednesday,Printed Silk Scarf,Accessories,S,Mustard,1,249,50,124.5,Cash,Female,Teen (13-19),Accessories
+B080,S114,2025-09-17,Wednesday,Casual White Sneakers,Footwear,M,White,2,899,20,1438.4,Cash,Female,Teen (13-19),Men
+B081,S115,2025-09-17,Wednesday,Ethnic Kolhapuri Chappals,Footwear,M,Mustard,1,699,10,629.1,UPI,Female,Adult (31-45),Women
+B081,S116,2025-09-17,Wednesday,Wide Leg Denim,Bottoms,S,Black,1,1199,20,959.2,UPI,Female,Adult (31-45),Women
+B082,S117,2025-09-17,Wednesday,Floral Kurti,Ethnic Wear,M,Pink,1,699,0,699.0,Card,Male,Teen (13-19),Women
+B083,S118,2025-09-17,Wednesday,Casual White Sneakers,Footwear,M,White,1,899,0,899.0,UPI,Female,Young Adult (20-30),Men
+B084,S119,2025-09-17,Wednesday,Anarkali Kurta Set,Ethnic Wear,L,Emerald,1,1299,20,1039.2,Card,Female,Young Adult (20-30),Women
+B085,S120,2025-09-17,Wednesday,Floral Kurti,Ethnic Wear,S,White,1,699,10,629.1,Cash,Male,Young Adult (20-30),Women
+B086,S121,2025-09-18,Thursday,Anarkali Kurta Set,Ethnic Wear,L,Emerald,1,1299,20,1039.2,UPI,Female,Young Adult (20-30),Women
+B087,S122,2025-09-18,Thursday,Cotton Kurta Pajama,Ethnic Wear,M,Sky Blue,1,999,20,799.2,Card,Female,Young Adult (20-30),Men
+B087,S123,2025-09-18,Thursday,Cotton Kurta Pajama,Ethnic Wear,XL,White,1,999,0,999.0,Card,Female,Young Adult (20-30),Men
+B088,S124,2025-09-18,Thursday,Anarkali Kurta Set,Ethnic Wear,XL,Emerald,1,1299,10,1169.1,UPI,Male,Adult (31-45),Women
+B088,S125,2025-09-18,Thursday,Floral Kurti,Ethnic Wear,L,White,1,699,0,699.0,UPI,Male,Adult (31-45),Women
+B089,S126,2025-09-18,Thursday,High-Rise Trousers,Bottoms,S,Olive,1,999,20,799.2,UPI,Male,Young Adult (20-30),Women
+B090,S127,2025-09-18,Thursday,Ethnic Kolhapuri Chappals,Footwear,S,Red,1,699,10,629.1,Card,Female,Adult (31-45),Women
+B091,S128,2025-09-18,Thursday,Embroidered Sherwani,Ethnic Wear,XL,Mustard,1,1799,10,1619.1,Card,Male,Adult (31-45),Men
+B092,S129,2025-09-19,Friday,Printed Silk Scarf,Accessories,M,Pink,1,249,40,149.4,UPI,Male,Adult (31-45),Accessories
+B092,S130,2025-09-19,Friday,Floral Kurti,Ethnic Wear,L,Pink,1,699,20,559.2,UPI,Male,Adult (31-45),Women
+B093,S131,2025-09-19,Friday,Beaded Boho Earrings,Accessories,XS,Sky Blue,1,199,50,99.5,Cash,Female,Young Adult (20-30),Accessories
+B094,S132,2025-09-19,Friday,Classic Leather Belt,Accessories,M,Charcoal,1,349,40,209.4,Cash,Female,Young Adult (20-30),Accessories
+B095,S133,2025-09-19,Friday,Anarkali Kurta Set,Ethnic Wear,S,Emerald,1,1299,0,1299.0,UPI,Female,Senior (46+),Women
+B095,S134,2025-09-19,Friday,Floral Kurti,Ethnic Wear,XL,White,2,699,0,1398.0,UPI,Female,Senior (46+),Women
+B096,S135,2025-09-20,Saturday,Oversized Cotton T-Shirt,Tops,S,Olive,1,499,0,499.0,UPI,Female,Senior (46+),Men
+B096,S136,2025-09-20,Saturday,Classic Leather Belt,Accessories,M,Black,1,349,40,209.4,UPI,Female,Senior (46+),Accessories
+B097,S137,2025-09-20,Saturday,Linen Casual Shirt,Tops,XL,Olive,1,799,0,799.0,UPI,Female,Senior (46+),Men
+B097,S138,2025-09-20,Saturday,Classic Leather Belt,Accessories,XL,Black,3,349,40,628.2,UPI,Female,Senior (46+),Accessories
+B098,S139,2025-09-20,Saturday,Classic Polo T-Shirt,Tops,L,Navy Blue,1,599,0,599.0,UPI,Male,Teen (13-19),Men
+B098,S140,2025-09-20,Saturday,Wide Leg Denim,Bottoms,L,Black,1,1199,0,1199.0,UPI,Male,Teen (13-19),Women
+B099,S141,2025-09-20,Saturday,Linen Casual Shirt,Tops,L,Olive,1,799,20,639.2,UPI,Female,Young Adult (20-30),Men
+B100,S142,2025-09-20,Saturday,Cotton Chinos,Bottoms,L,Navy Blue,1,899,10,809.1,UPI,Female,Senior (46+),Men
+B101,S143,2025-09-20,Saturday,Oversized Cotton T-Shirt,Tops,S,Olive,1,499,10,449.1,UPI,Male,Young Adult (20-30),Men
+B102,S144,2025-09-20,Saturday,Oversized Cotton T-Shirt,Tops,S,White,1,499,20,399.2,UPI,Female,Young Adult (20-30),Men
+B102,S145,2025-09-20,Saturday,High-Rise Trousers,Bottoms,L,Charcoal,1,999,0,999.0,UPI,Female,Young Adult (20-30),Women
+B103,S146,2025-09-21,Sunday,Oversized Cotton T-Shirt,Tops,M,Charcoal,1,499,10,449.1,UPI,Male,Adult (31-45),Men
+B104,S147,2025-09-21,Sunday,Slim Fit Jeans,Bottoms,L,Black,2,999,20,1598.4,Card,Male,Young Adult (20-30),Men
+B105,S148,2025-09-21,Sunday,Slim Fit Jeans,Bottoms,L,Charcoal,1,999,10,899.1,UPI,Male,Teen (13-19),Men
+B106,S149,2025-09-21,Sunday,Anarkali Kurta Set,Ethnic Wear,L,Mustard,2,1299,20,2078.4,UPI,Female,Adult (31-45),Women
+B107,S150,2025-09-21,Sunday,Beaded Boho Earrings,Accessories,XS,Red,2,199,50,199.0,Card,Male,Adult (31-45),Accessories
+B108,S151,2025-09-21,Sunday,Floral Kurti,Ethnic Wear,M,Red,1,699,0,699.0,Cash,Female,Young Adult (20-30),Women
+B109,S152,2025-09-21,Sunday,Slim Fit Jeans,Bottoms,XL,Charcoal,1,999,0,999.0,UPI,Female,Young Adult (20-30),Men
+B110,S153,2025-09-21,Sunday,Slip-On Loafers,Footwear,XL,Navy Blue,1,1199,0,1199.0,Card,Male,Young Adult (20-30),Men
+B111,S154,2025-09-22,Monday,Wide Leg Denim,Bottoms,L,Navy Blue,1,1199,10,1079.1,Card,Female,Teen (13-19),Women
+B112,S155,2025-09-22,Monday,Cotton Chinos,Bottoms,S,Olive,1,899,20,719.2,UPI,Female,Young Adult (20-30),Men
+B112,S156,2025-09-22,Monday,Oversized Cotton T-Shirt,Tops,L,White,1,499,10,449.1,UPI,Female,Young Adult (20-30),Men
+B113,S157,2025-09-22,Monday,Classic Polo T-Shirt,Tops,L,Navy Blue,1,599,10,539.1,UPI,Female,Young Adult (20-30),Men
+B114,S158,2025-09-22,Monday,Printed Crop Top,Tops,XS,Sky Blue,1,399,0,399.0,UPI,Female,Teen (13-19),Women
+B115,S159,2025-09-23,Tuesday,Beaded Boho Earrings,Accessories,XS,Sky Blue,1,199,50,99.5,UPI,Male,Teen (13-19),Accessories
+B116,S160,2025-09-23,Tuesday,Classic Leather Belt,Accessories,L,Charcoal,2,349,40,418.8,UPI,Female,Senior (46+),Accessories
+B117,S161,2025-09-23,Tuesday,Anarkali Kurta Set,Ethnic Wear,M,Red,1,1299,10,1169.1,UPI,Female,Teen (13-19),Women
+B117,S162,2025-09-23,Tuesday,Beaded Boho Earrings,Accessories,XS,Mustard,3,199,40,358.2,UPI,Female,Teen (13-19),Accessories
+B118,S163,2025-09-23,Tuesday,Anarkali Kurta Set,Ethnic Wear,S,Red,2,1299,10,2338.2,UPI,Female,Young Adult (20-30),Women
+B118,S164,2025-09-23,Tuesday,Ethnic Kolhapuri Chappals,Footwear,S,Black,1,699,20,559.2,UPI,Female,Young Adult (20-30),Women
+B119,S165,2025-09-24,Wednesday,Wide Leg Denim,Bottoms,M,Navy Blue,1,1199,0,1199.0,Cash,Male,Young Adult (20-30),Women
+B120,S166,2025-09-24,Wednesday,Slim Fit Jeans,Bottoms,S,Navy Blue,1,999,10,899.1,UPI,Female,Teen (13-19),Men
+B121,S167,2025-09-24,Wednesday,Wide Leg Denim,Bottoms,S,Navy Blue,1,1199,10,1079.1,UPI,Male,Adult (31-45),Women
+B121,S168,2025-09-24,Wednesday,Classic Leather Belt,Accessories,M,Charcoal,1,349,40,209.4,UPI,Male,Adult (31-45),Accessories
+B122,S169,2025-09-25,Thursday,Classic Polo T-Shirt,Tops,L,White,1,599,10,539.1,UPI,Female,Young Adult (20-30),Men
+B123,S170,2025-09-25,Thursday,Slim Fit Jeans,Bottoms,S,Black,1,999,10,899.1,Card,Female,Adult (31-45),Men
+B124,S171,2025-09-26,Friday,Classic Leather Belt,Accessories,L,Charcoal,2,349,40,418.8,UPI,Male,Teen (13-19),Accessories
+B125,S172,2025-09-26,Friday,Floral Kurti,Ethnic Wear,XL,Red,1,699,0,699.0,UPI,Female,Adult (31-45),Women
+B125,S173,2025-09-26,Friday,Cotton Kurta Pajama,Ethnic Wear,M,Mustard,1,999,0,999.0,UPI,Female,Adult (31-45),Men
+B126,S174,2025-09-27,Saturday,Oversized Cotton T-Shirt,Tops,XL,Black,1,499,10,449.1,Cash,Female,Young Adult (20-30),Men
+B127,S175,2025-09-27,Saturday,Floral Kurti,Ethnic Wear,S,Mustard,1,699,10,629.1,Card,Female,Adult (31-45),Women
+B127,S176,2025-09-27,Saturday,Printed Silk Scarf,Accessories,S,Emerald,1,249,40,149.4,Card,Female,Adult (31-45),Accessories
+B128,S177,2025-09-27,Saturday,Linen Casual Shirt,Tops,M,Sky Blue,2,799,0,1598.0,Cash,Male,Adult (31-45),Men
+B128,S178,2025-09-27,Saturday,High-Rise Trousers,Bottoms,L,Olive,1,999,10,899.1,Cash,Male,Adult (31-45),Women
+B129,S179,2025-09-28,Sunday,Slim Fit Jeans,Bottoms,S,Black,1,999,0,999.0,Cash,Male,Adult (31-45),Men
+B130,S180,2025-09-28,Sunday,Slim Fit Jeans,Bottoms,XL,Navy Blue,2,999,0,1998.0,Cash,Male,Young Adult (20-30),Men
+B130,S181,2025-09-28,Sunday,Classic Leather Belt,Accessories,XL,Black,1,349,50,174.5,Cash,Male,Young Adult (20-30),Accessories
+B131,S182,2025-09-28,Sunday,Beaded Boho Earrings,Accessories,XS,Red,1,199,50,99.5,UPI,Other,Young Adult (20-30),Accessories
+B132,S183,2025-09-29,Monday,Oversized Cotton T-Shirt,Tops,M,White,1,499,10,449.1,Card,Female,Young Adult (20-30),Men
+B132,S184,2025-09-29,Monday,Slim Fit Jeans,Bottoms,XL,Navy Blue,1,999,0,999.0,Card,Female,Young Adult (20-30),Men
+B132,S185,2025-09-29,Monday,Printed Silk Scarf,Accessories,M,Pink,2,249,40,298.8,Card,Female,Young Adult (20-30),Accessories
+B133,S186,2025-09-29,Monday,Oversized Cotton T-Shirt,Tops,L,Charcoal,1,499,10,449.1,Card,Male,Adult (31-45),Men
+B134,S187,2025-09-30,Tuesday,High-Rise Trousers,Bottoms,L,Olive,1,999,0,999.0,UPI,Female,Young Adult (20-30),Women
+B134,S188,2025-09-30,Tuesday,Linen Casual Shirt,Tops,M,White,1,799,10,719.1,UPI,Female,Young Adult (20-30),Men
+B134,S189,2025-09-30,Tuesday,Ethnic Kolhapuri Chappals,Footwear,S,Red,1,699,0,699.0,UPI,Female,Young Adult (20-30),Women
+B135,S190,2025-09-30,Tuesday,Printed Silk Scarf,Accessories,M,Emerald,1,249,50,124.5,UPI,Male,Adult (31-45),Accessories
+B135,S191,2025-09-30,Tuesday,Oversized Cotton T-Shirt,Tops,M,Black,1,499,20,399.2,UPI,Male,Adult (31-45),Men
+B136,S192,2025-09-30,Tuesday,Cotton Chinos,Bottoms,M,Navy Blue,1,899,0,899.0,UPI,Female,Young Adult (20-30),Men
+B136,S193,2025-09-30,Tuesday,Linen Casual Shirt,Tops,M,White,1,799,0,799.0,UPI,Female,Young Adult (20-30),Men

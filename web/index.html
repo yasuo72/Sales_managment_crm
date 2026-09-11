@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zudio Store Operations — Executive Retail Analytics & AI Copilot</title>
+  <meta name="description" content="Store Manager command center, interactive sales visual graphs, operational anomaly radar, and AI Copilot for Zudio retail operations.">
+  
+  <!-- Modern Typography: Inter, Outfit, and Noto Sans Devanagari for clean Hindi rendering -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Chart.js for High-Fidelity Retail Visualizations -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <link rel="stylesheet" href="/web/style.css">
+</head>
+<body>
+  <div class="app-container">
+    
+    <!-- Top Executive Header -->
+    <header class="top-nav">
+      <div class="brand-cluster">
+        <div class="brand-logo">Z</div>
+        <div>
+          <div class="brand-eyebrow">TATA TRENT RETAIL • FLAGSHIP OPERATIONS</div>
+          <h1 class="store-title">Zudio Store Operations Intelligence</h1>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <nav class="nav-tabs">
+        <button class="nav-tab active" data-tab="tab-overview">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          Executive Overview
+        </button>
+        <button class="nav-tab" data-tab="tab-charts">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          Sales & Visual Graphs
+        </button>
+        <button class="nav-tab" data-tab="tab-inventory">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+          Floor & Inventory Health
+        </button>
+      </nav>
+
+      <!-- Action Cluster -->
+      <div class="header-actions">
+        <button id="refreshBtn" class="btn-secondary" title="Re-sync data from CSV">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+          <span>Sync CSV</span>
+        </button>
+        <button id="printReportBtn" class="btn-secondary" title="Print or Export Floor Summary">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          <span>Print Briefing</span>
+        </button>
+        <button id="toggleChatBtn" class="btn-primary" title="Open AI Copilot Full Screen">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <span id="chatToggleText">AI Copilot</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Manager On-Duty Sub-Bar -->
+    <div class="manager-subbar">
+      <div class="manager-profile">
+        <div class="avatar-sm">SM</div>
+        <div class="manager-info">
+          <span class="m-name">Store Manager: <strong>Rohit Sharma</strong></span>
+          <span class="m-location">Store: <strong>ZUD-MUM-42</strong> (Bandra High Street) • Period: <strong>September 2025</strong></span>
+        </div>
+      </div>
+
+      <!-- Target Progress -->
+      <div class="target-progress-widget">
+        <div class="target-labels">
+          <span>Monthly Revenue Target: <strong>₹2,00,000</strong></span>
+          <span class="target-pct"><strong>94.1%</strong> Achieved (₹1,88,227)</span>
+        </div>
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" style="width: 94.1%;"></div>
+        </div>
+      </div>
+
+      <!-- Operational Status Badge -->
+      <div class="store-status-group">
+        <span class="status-pill active"><span class="pulse-dot"></span> Live Shift Active</span>
+      </div>
+    </div>
+
+    <!-- Full-Screen Copilot Modal Overlay -->
+    <div class="copilot-overlay" id="copilotOverlay">
+      <div class="copilot-fullscreen" id="copilotFullscreen">
+
+        <!-- Modal Header -->
+        <div class="copilot-header">
+          <div class="copilot-title-group">
+            <div class="ai-avatar">AI</div>
+            <div>
+              <h2 class="copilot-name">Zudio Store Copilot</h2>
+              <span class="copilot-status">Powered by <strong>Gemini 2.5 Flash</strong> · Store ZUD-MUM-42 · Sept 2025</span>
+            </div>
+          </div>
+          <div class="copilot-controls">
+            <button id="clearChatBtn" class="icon-btn" title="Clear conversation">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+            </button>
+            <button id="closeDrawerBtn" class="icon-btn close-copilot-btn" title="Close Copilot">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Quick Question Chips -->
+        <div class="quick-chips-wrapper">
+          <div class="chips-header-row">
+            <span class="chips-label">💡 Suggested Inquiries (Click to Ask):</span>
+            <div class="chips-nav-controls">
+              <span class="chips-scroll-hint">Scroll for more ➔</span>
+              <button class="chips-arrow-btn" onclick="scrollChips(-220)" title="Scroll left" aria-label="Scroll left">‹</button>
+              <button class="chips-arrow-btn" onclick="scrollChips(220)" title="Scroll right" aria-label="Scroll right">›</button>
+            </div>
+          </div>
+          <div class="chips-scroll" id="chipsScroll">
+            <!-- 1. The 5 Core Assignment Questions (Priority 1) -->
+            <button class="chip chip-core" onclick="askCopilot('q1_products')" title="Which products are selling well & which are not? Top 3 best & worst with reasons">🏆 Q1: Best &amp; Worst Sellers</button>
+            <button class="chip chip-core" onclick="askCopilot('q2_sizes')" title="Which size keeps running out? Which is barely moving? Procurement advice">📏 Q2: Size Velocity &amp; Stockouts</button>
+            <button class="chip chip-core" onclick="askCopilot('q3_weekday')" title="Which day is busiest? Which is slowest? Tuesday special offer strategy">📅 Q3: Busiest &amp; Slowest Days</button>
+            <button class="chip chip-core" onclick="askCopilot('q4_customers')" title="Who is buying what? 2 non-obvious customer demographic buying patterns">👥 Q4: Customer Buying Patterns</button>
+            <button class="chip chip-core" onclick="askCopilot('q5_actions')" title="3 clear, specific operational actions for the store manager next week">🎯 Q5: 3 Manager Action Plans</button>
+
+            <!-- 2. Detailed Reports (Priority 2) -->
+            <button class="chip chip-featured" onclick="askCopilot('english_brief')" title="Full English executive briefing on store operations">📋 Executive Briefing (Full Month)</button>
+            <button class="chip chip-featured" onclick="askCopilot('hindi_brief')" title="Hindi summary for morning floor supervisor meetings">🇮🇳 Hindi Floor Briefing (फ्लोर सारांश)</button>
+
+            <!-- 3. Rest of Questions / Operational Extensions (Priority 3) -->
+            <button class="chip chip-highlight" onclick="askCopilot('q6_basket')" title="Analyze basket size (UPT) and co-purchased product pairs">🛒 Q6: Basket Size &amp; Cross-Selling</button>
+            <button class="chip chip-highlight" onclick="askCopilot('q7_weekend')" title="Which product to put on clearance sale this weekend">🛍️ Q7: Weekend Clearance Sale</button>
+            <button class="chip chip-highlight" onclick="askCopilot('q8_wow')" title="Week 1 vs Week 4 revenue and salary cycle drop">📉 Q8: Weekly Salary-Cycle Trend</button>
+            <button class="chip" onclick="askCopilot('avoid')" title="Stop the 50% discount trap on accessories">🛑 What Store Must Stop</button>
+          </div>
+        </div>
+
+        <!-- Chat Messages Area -->
+        <div class="chat-conversation" id="chatMessages">
+          <!-- Welcome Message -->
+          <div class="chat-message assistant-msg">
+            <div class="msg-avatar">AI</div>
+            <div class="msg-bubble">
+              <p>Hello Store Manager Rohit! I am your <strong>Zudio Store Operations Copilot</strong>.</p>
+              <p>I have ingested and verified all <strong>193 sales transactions</strong> (₹1,70,821 revenue across <strong>136 customer bills</strong>) from September 2025. Ask me anything in English or Hindi!</p>
+              <p>Try the quick chips above, or type your question below. 👇</p>
+              <div class="msg-action-bar">
+                <button class="copy-btn" onclick="copyMessageText(this)">📋 Copy Briefing</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Typing Indicator -->
+        <div class="typing-indicator" id="typingIndicator" style="display: none;">
+          <div class="typing-dot"></div>
+          <div class="typing-dot"></div>
+          <div class="typing-dot"></div>
+          <span>Gemini 2.5 Flash is analyzing retail data...</span>
+        </div>
+
+        <!-- Chat Input -->
+        <form class="chat-input-form" id="chatForm">
+          <input
+            type="text"
+            id="chatInput"
+            placeholder="Ask anything in English or Hindi — e.g. 'Why did Tuesday underperform?'"
+            autocomplete="off"
+            required
+          />
+          <button type="submit" id="sendBtn" class="send-btn" title="Send">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+        </form>
+
+      </div>
+    </div>
+
+    <!-- Main Content Layout (Analytics Panels Only) -->
+    <main class="dashboard-layout" id="dashboardLayout">
+      
+      <!-- Left / Center Content Panels -->
+      <div class="main-content-panel">
+        
+        <!-- ================================================================ -->
+        <!-- TAB 1: EXECUTIVE OVERVIEW -->
+        <!-- ================================================================ -->
+        <section id="tab-overview" class="tab-pane active">
+          
+          <!-- Top KPI Cards -->
+          <div class="kpi-grid">
+            <div class="kpi-card highlight-card">
+              <div class="kpi-header">
+                <span class="kpi-label">Monthly Gross Revenue</span>
+                <span class="kpi-icon-badge">₹</span>
+              </div>
+              <div class="kpi-value" id="kpiRevenue">₹1,70,821</div>
+              <div class="kpi-sub positive">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+                <span>136 Validated Bills (193 Line Items)</span>
+              </div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-header">
+                <span class="kpi-label">Total Units Sold (Volume)</span>
+                <span class="kpi-icon-badge">📦</span>
+              </div>
+              <div class="kpi-value" id="kpiUnits">241 <span class="unit-tag">Items</span></div>
+              <div class="kpi-sub neutral">
+                <span>Avg Basket: 1.77 items/bill</span>
+              </div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-header">
+                <span class="kpi-label">Average Order Value (AOV)</span>
+                <span class="kpi-icon-badge">💳</span>
+              </div>
+              <div class="kpi-value" id="kpiATV">₹1,256.03</div>
+              <div class="kpi-sub positive">
+                <span>ATV / Ticket: ₹885.08</span>
+              </div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-header">
+                <span class="kpi-label">Core Demographic</span>
+                <span class="kpi-icon-badge">👥</span>
+              </div>
+              <div class="kpi-value" id="kpiDemographics">50.9% <span class="unit-tag">Young Adults</span></div>
+              <div class="kpi-sub">
+                <span>UPI Adoption: <strong>62.2%</strong></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Operational Bottlenecks & Anomaly Radar -->
+          <div class="section-container">
+            <div class="section-header-row">
+              <div>
+                <h2 class="section-heading">Operational Bottlenecks & Anomaly Radar</h2>
+                <span class="section-sub">Four critical store patterns detected by automated retail telemetry</span>
+              </div>
+              <span class="badge-count">4 Alerts Requiring Manager Action</span>
+            </div>
+            
+            <div class="alerts-grid">
+              <!-- Anomaly 1: Size M Stockout -->
+              <div class="alert-card danger-theme">
+                <div class="alert-header">
+                  <span class="badge badge-danger">CRITICAL STOCKOUT</span>
+                  <span class="alert-date">Sept 13–30</span>
+                </div>
+                <h3 class="alert-title">Slim Fit Jeans (Size M) Depleted</h3>
+                <p class="alert-desc">
+                  Size M generated 9 units sold in early September before recording <strong>0 sales from Sept 13 onwards</strong> due to inventory exhaustion, while other sizes (S, L, XL) continued selling 15 units.
+                </p>
+                <div class="alert-footer">
+                  <span class="alert-impact">Estimated lost revenue: ~₹12,000–₹15,000</span>
+                  <button class="chip-action" onclick="askCopilot('What is the replenishment action for Size M Slim Fit Jeans?')">Action Plan</button>
+                </div>
+              </div>
+
+              <!-- Anomaly 2: Dead Tuesday -->
+              <div class="alert-card warning-theme">
+                <div class="alert-header">
+                  <span class="badge badge-warning">MID-WEEK SLUMP</span>
+                  <span class="alert-date">Tuesday, Sept 16</span>
+                </div>
+                <h3 class="alert-title">Dead Tuesday Anomaly (₹399 Revenue)</h3>
+                <p class="alert-desc">
+                  Tuesdays trail all weekdays (avg ₹17,033), crashing to a month-low of <strong>only 1 ticket (₹399.00)</strong> on Sept 16, lagging Saturday peak (₹31,729) by 30.2% below daily average.
+                </p>
+                <div class="alert-footer">
+                  <span class="alert-impact">Proposed: 'Two-Piece Tuesday' Promo</span>
+                  <button class="chip-action" onclick="askCopilot('What specific promotion should I run on Tuesdays?')">View Strategy</button>
+                </div>
+              </div>
+
+              <!-- Anomaly 3: Discount Trap -->
+              <div class="alert-card purple-theme">
+                <div class="alert-header">
+                  <span class="badge badge-purple">MARGIN EROSION</span>
+                  <span class="alert-date">Category Leak</span>
+                </div>
+                <h3 class="alert-title">Accessories 45.2% Discount Trap</h3>
+                <p class="alert-desc">
+                  Accessories carried an aggressive 45.2% average markdown, clearing 49 units but yielding <strong>only 4.22% of store revenue</strong> (₹7,202.80). Customers buy them on impulse, not due to discounts.
+                </p>
+                <div class="alert-footer">
+                  <span class="alert-impact">Action: Stop discounting, place at POS</span>
+                  <button class="chip-action" onclick="askCopilot('Why should we stop discounting accessories?')">Analyze Trap</button>
+                </div>
+              </div>
+
+              <!-- Anomaly 4: Stagnant Sherwani -->
+              <div class="alert-card info-theme">
+                <div class="alert-header">
+                  <span class="badge badge-info">SLOW MOVER</span>
+                  <span class="alert-date">Festive Season</span>
+                </div>
+                <h3 class="alert-title">Embroidered Sherwani (₹1,799)</h3>
+                <p class="alert-desc">
+                  Moved <strong>only 2 units</strong> all month despite peak festive season. Its ₹1,799 price point is far above Zudio's core price band, and it is hidden at the back racks.
+                </p>
+                <div class="alert-footer">
+                  <span class="alert-impact">Action: 35-40% Clearance Sale & Move to Front</span>
+                  <button class="chip-action" onclick="askCopilot('What should we do with the Embroidered Sherwani?')">Merchandise Plan</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Charts Preview in Overview -->
+          <div class="overview-charts-row">
+            <div class="chart-card">
+              <div class="chart-card-header">
+                <div>
+                  <h3 class="chart-title">Best Sellers Performance</h3>
+                  <span class="chart-sub">Top 5 Products Volume vs Revenue</span>
+                </div>
+              </div>
+              <div class="chart-canvas-wrapper" style="height: 240px;">
+                <canvas id="overviewMiniChart"></canvas>
+              </div>
+            </div>
+
+            <div class="chart-card">
+              <div class="chart-card-header">
+                <div>
+                  <h3 class="chart-title">Garment Size Share</h3>
+                  <span class="chart-sub">Sizes L & M lead total store volume (26.1% each)</span>
+                </div>
+              </div>
+              <div class="chart-canvas-wrapper" style="height: 240px;">
+                <canvas id="overviewDonutChart"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <!-- Store Manager Action Directives Table (Q5) -->
+          <div class="section-container">
+            <div class="section-header-row">
+              <div>
+                <h2 class="section-heading">Store Manager Next-Week Directives (Q5 Deliverable)</h2>
+                <span class="section-sub">Assigned operational actions grounded strictly in verified empirical retail data</span>
+              </div>
+            </div>
+
+            <div class="actions-table-wrapper">
+              <table class="actions-table">
+                <thead>
+                  <tr>
+                    <th>Priority</th>
+                    <th>Direct Operational Action</th>
+                    <th>Assigned Owner</th>
+                    <th>Empirical Retail Evidence</th>
+                    <th>Expected Revenue & Margin Impact</th>
+                    <th>Action Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="p-badge high">Priority 1</span></td>
+                    <td>
+                      <strong>Emergency Restock of Slim Fit Jeans (Size M)</strong>
+                      <div class="action-meta">Issue Purchase Order for minimum 30 units immediately</div>
+                    </td>
+                    <td>Inventory Lead (Sanjay)</td>
+                    <td>Size M volume plummeted from 9 units (Sept 1–12) to 0 units post-Sept 12, while sizes S, L, XL sold 15 units.</td>
+                    <td><strong class="text-emerald">+₹12,000 to ₹15,000</strong> weekly recovered denim revenue.</td>
+                    <td><span class="status-tag pending">PO Drafted</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="p-badge medium">Priority 2</span></td>
+                    <td>
+                      <strong>Deploy 'Two-Piece Tuesday' Student / Youth Bundle</strong>
+                      <div class="action-meta">Pair Graphic Tee (₹499) + Denim Shorts / Bottom for ₹899 combo</div>
+                    </td>
+                    <td>Floor Supervisor (Pooja)</td>
+                    <td>Tuesday averages ₹17,033 (30.2% below daily average), crashing to 1 ticket (₹399) on Sept 16.</td>
+                    <td><strong class="text-emerald">+₹10,000</strong> lifts Tuesday revenue closer to weekday norms.</td>
+                    <td><span class="status-tag in-progress">Signage Ready</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="p-badge low">Priority 3</span></td>
+                    <td>
+                      <strong>Relocate Sherwani to Entrance & Eliminate 50% Accessory Markdowns</strong>
+                      <div class="action-meta">Move 2 Sherwanis to front mannequins; restore jewelry to full ₹199-₹299 at POS</div>
+                    </td>
+                    <td>Visual Merchandiser (Karan)</td>
+                    <td>Sherwani moved only 2 units; Accessories carried 45.2% discounts contributing under 4.3% revenue.</td>
+                    <td><strong class="text-emerald">+₹5,400</strong> margin recovery without sacrificing unit velocity.</td>
+                    <td><span class="status-tag ready">Approved</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ================================================================ -->
+        <!-- TAB 2: SALES & VISUAL GRAPHS -->
+        <!-- ================================================================ -->
+        <section id="tab-charts" class="tab-pane">
+          <div class="tab-header-banner">
+            <div>
+              <h2 class="tab-heading">Interactive Sales Visual Analytics</h2>
+              <p class="tab-sub">Comprehensive multi-dimensional analysis of volume, revenue velocity, footfall trajectories, and customer habits.</p>
+            </div>
+          </div>
+
+          <div class="charts-expanded-grid">
+            
+            <!-- Chart 1: Top 10 Best Sellers -->
+            <div class="chart-card full-width">
+              <div class="chart-card-header">
+                <div>
+                  <h3 class="chart-title">Top 10 Products: Sales Volume (Units) vs Revenue (₹)</h3>
+                  <span class="chart-sub">Comparing top revenue drivers (Anarkali Kurta Set ₹33,774, Slim Fit Jeans ₹24,775, Floral Kurti ₹16,147)</span>
+                </div>
+                <div class="chart-legend-custom">
+                  <span class="legend-box volume-color"></span> Units Sold
+                  <span class="legend-box revenue-color"></span> Revenue (₹)
+                </div>
+              </div>
+              <div class="chart-canvas-wrapper" style="height: 320px;">
+                <canvas id="topProductsChart"></canvas>
+              </div>
+            </div>
+
+            <!-- Chart 2: Day-of-Week Trajectory -->
+            <div class="chart-card">
+              <div class="chart-card-header">
+                <div>
+                  <h3 class="chart-title">Day-of-Week Revenue Trajectory</h3>
+                  <span class="chart-sub">Mid-week slump (Tuesday ₹17,033) vs Weekend Rush (Saturday ₹31,729)</span>
+                </div>
+              </div>
+              <div class="chart-canvas-wrapper" style="height: 270px;">
+                <canvas id="weekdayChart"></canvas>
+              </div>
+            </div>
+
+            <!-- Chart 3: Size Demand Distribution -->
+            <div class="chart-card">
+              <div class="chart-card-header">
+                <div>
+                  <h3 class="chart-title">Garment Size Demand Breakdown</h3>
+                  <span class="chart-sub">Sizes L & M lead demand at 26.1% each, followed by S (22.4%)</span>
+                </div>
+              </div>
+              <div class="chart-canvas-wrapper" style="height: 270px;">
+                <canvas id="sizeChart"></canvas>
+              </div>
+            </div>
+
+            <!-- Chart 4: Category Revenue vs Discount -->
+            <div class="chart-card">
+              <div class="chart-card-header">
+                <div>
+                  <h3 class="chart-title">Category Revenue Contribution vs Average Discount</h3>
+                  <span class="chart-sub">Demonstrates how deep accessory discounts failed to translate into revenue</span>
+                </div>
+              </div>
+              <div class="chart-canvas-wrapper" style="height: 270px;">
+                <canvas id="categoryChart"></canvas>
+              </div>
+            </div>
+
+            <!-- Chart 5: Customer Demographics Share -->
+            <div class="chart-card">
+              <div class="chart-card-header">
+                <div>
+                  <h3 class="chart-title">Customer Age Demographics & Revenue Share</h3>
+                  <span class="chart-sub">Young Adults (20–30) generate 50.9% of store revenue</span>
+                </div>
+              </div>
+              <div class="chart-canvas-wrapper" style="height: 270px;">
+                <canvas id="demographicsChart"></canvas>
+              </div>
+            </div>
+
+            <!-- Chart 6: Payment Methods Breakdown -->
+            <div class="chart-card full-width">
+              <div class="chart-card-header">
+                <div>
+                  <h3 class="chart-title">Checkout Payment Channel Distribution</h3>
+                  <span class="chart-sub">UPI digital dominance at 62.2% of total transactions (surging in Ethnic Wear)</span>
+                </div>
+              </div>
+              <div class="chart-canvas-wrapper" style="height: 240px;">
+                <canvas id="paymentChart"></canvas>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ================================================================ -->
+        <!-- TAB 3: FLOOR & INVENTORY HEALTH -->
+        <!-- ================================================================ -->
+        <section id="tab-inventory" class="tab-pane">
+          <div class="tab-header-banner">
+            <div>
+              <h2 class="tab-heading">Inventory Health & Floor Merchandising Audit</h2>
+              <p class="tab-sub">Real-time telemetry on stockouts, slow-moving festive inventory, and cash-desk impulse placements.</p>
+            </div>
+          </div>
+
+          <div class="inventory-dashboard-grid">
+            
+            <!-- Denim Stockout Timeline Widget -->
+            <div class="inventory-card danger-card">
+              <div class="inv-card-header">
+                <div>
+                  <span class="badge badge-danger">CRITICAL AUDIT</span>
+                  <h3 class="inv-title">Slim Fit Jeans (Size M) Depletion Timeline</h3>
+                </div>
+                <span class="inv-kpi text-rose">0 units in stock</span>
+              </div>
+              <div class="timeline-visual">
+                <div class="timeline-segment early">
+                  <div class="t-bar" style="width: 100%; background: #6366f1;"></div>
+                  <div class="t-info">
+                    <strong>Sept 01–12: Active</strong>
+                    <span>9 units sold (High velocity)</span>
+                  </div>
+                </div>
+                <div class="timeline-separator">⚠️ STOCK DEPLETED (Sept 13)</div>
+                <div class="timeline-segment late">
+                  <div class="t-bar" style="width: 100%; background: rgba(244, 63, 94, 0.2); border: 1px dashed #f43f5e;"></div>
+                  <div class="t-info">
+                    <strong class="text-rose">Sept 13–30: Stockout</strong>
+                    <span>0 units sold (Lost revenue: ~₹12,000–₹15,000)</span>
+                  </div>
+                </div>
+              </div>
+              <div class="inv-card-footer">
+                <span>Other sizes (S, L, XL) maintained 15 units sold. Recommendation: <strong>Issue purchase order for 30+ units of Size M</strong>.</span>
+              </div>
+            </div>
+
+            <!-- Sherwani Repositioning Audit -->
+            <div class="inventory-card warning-card">
+              <div class="inv-card-header">
+                <div>
+                  <span class="badge badge-warning">MERCHANDISE AUDIT</span>
+                  <h3 class="inv-title">Embroidered Sherwani (₹1,799) Slow-Mover Audit</h3>
+                </div>
+                <span class="inv-kpi text-amber">Only 2 units sold</span>
+              </div>
+              <div class="inv-metric-row">
+                <div class="metric-box">
+                  <span class="m-label">Product Ticket</span>
+                  <span class="m-val">₹1,799.00</span>
+                </div>
+                <div class="metric-box">
+                  <span class="m-label">Month Revenue</span>
+                  <span class="m-val">₹3,238.20</span>
+                </div>
+                <div class="metric-box">
+                  <span class="m-label">Current Placement</span>
+                  <span class="m-val">Back Racks (Zone D)</span>
+                </div>
+                <div class="metric-box">
+                  <span class="m-label">Recommended Zone</span>
+                  <span class="m-val text-emerald">Front Mannequin (Zone A)</span>
+                </div>
+              </div>
+              <div class="inv-card-footer">
+                <span>Action: Dress entrance mannequin with Sherwani + Kurti couple set to capture Navratri/Diwali footfall, or run 35-40% clearance sale.</span>
+              </div>
+            </div>
+
+            <!-- Accessories Margin Audit -->
+            <div class="inventory-card purple-card full-width">
+              <div class="inv-card-header">
+                <div>
+                  <span class="badge badge-purple">PROFIT AUDIT</span>
+                  <h3 class="inv-title">Accessory Margin Recovery vs 50% Discount Trap</h3>
+                </div>
+                <span class="inv-kpi text-purple">45.2% avg markdown</span>
+              </div>
+              <p class="inv-desc">
+                Accessories (Scarves, Belts, Earrings) recorded 49 units sold, but generated only ₹7,202.80 total revenue (4.22% of store total) due to unnecessary 45% promotions. Customers purchase accessories on spontaneous impulse, not driven by markdowns.
+              </p>
+              <div class="action-steps-grid">
+                <div class="step-card">
+                  <span class="step-num">Step 1</span>
+                  <strong>End 50% Clearance</strong>
+                  <span>Return earrings and scarves to full retail ticket (₹199–₹299).</span>
+                </div>
+                <div class="step-card">
+                  <span class="step-num">Step 2</span>
+                  <strong>Relocate to POS Counters</strong>
+                  <span>Place spinning displays within 3 feet of billing registers for impulse additions.</span>
+                </div>
+                <div class="step-card">
+                  <span class="step-num">Step 3</span>
+                  <strong>Train Cashiers on Add-ons</strong>
+                  <span>Brief cashiers to suggest earrings/scrunchies at checkout to boost bill ATV.</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+      </div>
+
+      <!-- ================================================================ -->
+      <!-- RIGHT PANEL: AI STORE COPILOT DRAWER (Always Accessible) -->
+      <!-- ================================================================ -->
+      <!-- Copilot is now a full-screen overlay (see top of body) -->
+
+    </main>
+
+  </div>
+
+  <script src="/web/app.js"></script>
+</body>
+</html>
